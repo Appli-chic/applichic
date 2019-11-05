@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 class Footer extends StatefulWidget {
   @override
@@ -6,6 +7,10 @@ class Footer extends StatefulWidget {
 }
 
 class _FooterState extends State<Footer> {
+  bool _isHoverGithub = false;
+  bool _isHoverTwitter = false;
+  bool _isHoverDiscord = false;
+
   /// Displays information about me
   Widget _displaysPersonalInformation() {
     return Row(
@@ -83,24 +88,67 @@ class _FooterState extends State<Footer> {
             children: <Widget>[
               Container(
                 margin: const EdgeInsets.only(right: 16),
-                child: Image.asset(
-                  'assets/github_logo.png',
-                  height: 40,
-                  color: Color(0xFF7B7B7B),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  onTap: () {
+                    html.window.open('https://github.com/Appli-chic', 'Github');
+                  },
+                  onHover: (bool hasEntered) {
+                    setState(() {
+                      _isHoverGithub = hasEntered;
+                    });
+                  },
+                  child: Image.asset(
+                    _isHoverGithub
+                        ? 'assets/github_logo_hover.png'
+                        : 'assets/github_logo.png',
+                    height: 40,
+                    color: Color(0xFF7B7B7B),
+                  ),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(right: 16),
-                child: Image.asset(
-                  'assets/twitter_logo.png',
-                  height: 40,
-                  color: Color(0xFF7B7B7B),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  onTap: () {
+                    html.window
+                        .open('https://twitter.com/applichic', 'Twitter');
+                  },
+                  onHover: (bool hasEntered) {
+                    setState(() {
+                      _isHoverTwitter = hasEntered;
+                    });
+                  },
+                  child: Image.asset(
+                    _isHoverTwitter
+                        ? 'assets/twitter_logo_hover.png'
+                        : 'assets/twitter_logo.png',
+                    height: 40,
+                    color: Color(0xFF7B7B7B),
+                  ),
                 ),
               ),
-              Image.asset(
-                'assets/discord_logo.png',
-                height: 35,
-                color: Color(0xFF7B7B7B),
+              InkWell(
+                splashColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                onTap: () {
+                  html.window.open('https://discord.gg/QtdQ3A7', 'Discord');
+                },
+                onHover: (bool hasEntered) {
+                  setState(() {
+                    _isHoverDiscord = hasEntered;
+                  });
+                },
+                child: Image.asset(
+                  _isHoverDiscord
+                      ? 'assets/discord_logo_hover.png'
+                      : 'assets/discord_logo.png',
+                  height: 35,
+                  color: Color(0xFF7B7B7B),
+                ),
               ),
             ],
           ),
