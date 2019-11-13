@@ -1,3 +1,4 @@
+import 'package:applichic/utils/hand_cursor.dart';
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 
@@ -13,7 +14,10 @@ class _FooterState extends State<Footer> {
 
   /// Displays information about me
   Widget _displaysPersonalInformation() {
+    Size size = MediaQuery.of(context).size;
+
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(
           width: 70,
@@ -43,15 +47,37 @@ class _FooterState extends State<Footer> {
                   ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 8, left: 4),
-                child: Text(
-                  'Web and mobile developer in love with Flutter.\nMy passion is learning and sharing knowledge.',
-                  style: TextStyle(
-                    color: Color(0xFF7B7B7B),
-                    fontSize: 16,
-                  ),
-                ),
+              Row(
+                children: size.width > 500
+                    ? <Widget>[
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 8, left: 4),
+                          child: Text(
+                            'Web and mobile developer in love with Flutter.\nMy passion is learning and sharing knowledge.',
+                            style: TextStyle(
+                              color: Color(0xFF7B7B7B),
+                              fontSize: 16,
+                            ),
+                            maxLines: 8,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ]
+                    : <Widget>[
+                        Container(
+                          margin: const EdgeInsets.only(bottom: 8, left: 4),
+                          child: Text(
+                            'Web and mobile developer\nin love with Flutter.\nMy passion is learning and\nsharing knowledge.',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              color: Color(0xFF7B7B7B),
+                              fontSize: 16,
+                            ),
+                            maxLines: 8,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
               ),
               Row(
                 children: <Widget>[
@@ -62,6 +88,8 @@ class _FooterState extends State<Footer> {
                       color: Color(0xFFEB3838),
                       fontSize: 16,
                     ),
+                    maxLines: 8,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
@@ -85,69 +113,77 @@ class _FooterState extends State<Footer> {
             margin: const EdgeInsets.only(bottom: 16),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
                 margin: const EdgeInsets.only(right: 16),
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  onTap: () {
-                    html.window.open('https://github.com/Appli-chic', 'Github');
-                  },
-                  onHover: (bool hasEntered) {
-                    setState(() {
-                      _isHoverGithub = hasEntered;
-                    });
-                  },
-                  child: Image.asset(
-                    _isHoverGithub
-                        ? 'assets/github_logo_hover.png'
-                        : 'assets/github_logo.png',
-                    height: 40,
-                    color: Color(0xFF7B7B7B),
+                child: HandCursor(
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    onTap: () {
+                      html.window
+                          .open('https://github.com/Appli-chic', 'Github');
+                    },
+                    onHover: (bool hasEntered) {
+                      setState(() {
+                        _isHoverGithub = hasEntered;
+                      });
+                    },
+                    child: Image.asset(
+                      _isHoverGithub
+                          ? 'assets/github_logo_hover.png'
+                          : 'assets/github_logo.png',
+                      height: 40,
+                      color: Color(0xFF7B7B7B),
+                    ),
                   ),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.only(right: 16),
+                child: HandCursor(
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    onTap: () {
+                      html.window
+                          .open('https://twitter.com/applichic', 'Twitter');
+                    },
+                    onHover: (bool hasEntered) {
+                      setState(() {
+                        _isHoverTwitter = hasEntered;
+                      });
+                    },
+                    child: Image.asset(
+                      _isHoverTwitter
+                          ? 'assets/twitter_logo_hover.png'
+                          : 'assets/twitter_logo.png',
+                      height: 40,
+                      color: Color(0xFF7B7B7B),
+                    ),
+                  ),
+                ),
+              ),
+              HandCursor(
                 child: InkWell(
                   splashColor: Colors.transparent,
                   hoverColor: Colors.transparent,
                   onTap: () {
-                    html.window
-                        .open('https://twitter.com/applichic', 'Twitter');
+                    html.window.open('https://discord.gg/QtdQ3A7', 'Discord');
                   },
                   onHover: (bool hasEntered) {
                     setState(() {
-                      _isHoverTwitter = hasEntered;
+                      _isHoverDiscord = hasEntered;
                     });
                   },
                   child: Image.asset(
-                    _isHoverTwitter
-                        ? 'assets/twitter_logo_hover.png'
-                        : 'assets/twitter_logo.png',
-                    height: 40,
+                    _isHoverDiscord
+                        ? 'assets/discord_logo_hover.png'
+                        : 'assets/discord_logo.png',
+                    height: 35,
                     color: Color(0xFF7B7B7B),
                   ),
-                ),
-              ),
-              InkWell(
-                splashColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                onTap: () {
-                  html.window.open('https://discord.gg/QtdQ3A7', 'Discord');
-                },
-                onHover: (bool hasEntered) {
-                  setState(() {
-                    _isHoverDiscord = hasEntered;
-                  });
-                },
-                child: Image.asset(
-                  _isHoverDiscord
-                      ? 'assets/discord_logo_hover.png'
-                      : 'assets/discord_logo.png',
-                  height: 35,
-                  color: Color(0xFF7B7B7B),
                 ),
               ),
             ],
@@ -233,6 +269,69 @@ class _FooterState extends State<Footer> {
     );
   }
 
+  Widget _displaysFooterFromWindozSize() {
+    Size size = MediaQuery.of(context).size;
+
+    if (size.width >= 1100) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          _displaysPersonalInformation(),
+          _displaysSocialNetworks(),
+          _displaysCompanyInformation(),
+          _displaysContact(),
+        ],
+      );
+    } else if (size.width > 420) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: _displaysPersonalInformation(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: _displaysSocialNetworks(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                _displaysCompanyInformation(),
+                _displaysContact(),
+              ],
+            ),
+          ),
+        ],
+      );
+    } else {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: _displaysPersonalInformation(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: _displaysSocialNetworks(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: _displaysCompanyInformation(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: _displaysContact(),
+          ),
+        ],
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -240,16 +339,7 @@ class _FooterState extends State<Footer> {
       padding: const EdgeInsets.only(top: 16, bottom: 8),
       child: Column(
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              _displaysPersonalInformation(),
-              _displaysSocialNetworks(),
-              _displaysCompanyInformation(),
-              _displaysContact(),
-            ],
-          ),
+          _displaysFooterFromWindozSize(),
           Container(
             margin: const EdgeInsets.only(top: 16, bottom: 8),
             child: Text(

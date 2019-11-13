@@ -13,8 +13,128 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Widget _displaysArticles(List<Widget> articles) {
+    Size size = MediaQuery.of(context).size;
+
+    if (size.width >= 1100) {
+      return Container(
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: articles,
+        ),
+      );
+    } else if (size.width > 500) {
+      return Container(
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: articles.sublist(0, 2),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: articles.sublist(2, 4),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: articles,
+        ),
+      );
+    }
+  }
+
+  Widget _displaysRecommendations(List<Widget> recommendations) {
+    Size size = MediaQuery.of(context).size;
+
+    if (size.width >= 1100) {
+      return Container(
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: recommendations,
+        ),
+      );
+    } else if (size.width > 500) {
+      return Container(
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
+        child: Column(
+          children: <Widget>[
+            Container(
+              margin: const EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: recommendations.sublist(0, 2),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: recommendations.sublist(2, 4),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return Container(
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: recommendations,
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+    List<Widget> articles = [
+      ArticlePreview(
+        imageName: 'flutter_logo.png',
+        title: 'Flutter: Google Translate',
+        subTitle: 'Make the design',
+      ),
+      ArticlePreview(
+        imageName: 'flutter_logo.png',
+        title: 'Flutter: Google Translate',
+        subTitle: 'Make it work',
+      ),
+      ArticlePreview(
+        imageName: 'flutter_logo.png',
+        title: 'Flutter: Google Translate',
+        subTitle: 'Make the design',
+      ),
+      ArticlePreview(
+        imageName: 'flutter_logo.png',
+        title: 'Flutter: Google Translate',
+        subTitle: 'Make the design',
+      ),
+    ];
+
+    List<Widget> recommendations = [
+      RecommendationPreview(
+        url:
+            "https://medium.com/flutter-community/flutter-statemanagement-with-provider-ee251bbc5ac1",
+        imageUrl:
+            'https://miro.medium.com/max/3200/1*73IgUxPfyXUKZAaIXgutrw.png',
+        title: 'Flutter StateManagement with Provider',
+      ),
+      Container(),
+      Container(),
+      Container(),
+    ];
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: MainAppBar(),
@@ -22,36 +142,9 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            _displaysArticles(articles),
             Container(
-              margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  ArticlePreview(
-                    imageName: 'flutter_logo.png',
-                    title: 'Flutter: Google Translate',
-                    subTitle: 'Make the design',
-                  ),
-                  ArticlePreview(
-                    imageName: 'flutter_logo.png',
-                    title: 'Flutter: Google Translate',
-                    subTitle: 'Make it work',
-                  ),
-                  ArticlePreview(
-                    imageName: 'flutter_logo.png',
-                    title: 'Flutter: Google Translate',
-                    subTitle: 'Make the design',
-                  ),
-                  ArticlePreview(
-                    imageName: 'flutter_logo.png',
-                    title: 'Flutter: Google Translate',
-                    subTitle: 'Make the design',
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.only(left: 22, right: 22, top: 32),
+              margin: const EdgeInsets.only(left: 22, right: 22, top: 16),
               child: Text(
                 "Recommendations to read:",
                 style: TextStyle(
@@ -61,24 +154,32 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  RecommendationPreview(
-                    imageUrl:
-                        'https://miro.medium.com/max/3200/1*73IgUxPfyXUKZAaIXgutrw.png',
-                    title: 'Flutter StateManagement with Provider',
-                  ),
-                ],
-              ),
-            ),
+            _displaysRecommendations(recommendations),
             LivePreview(),
             Footer(),
           ],
         ),
       ),
+      drawer: size.width > 500
+          ? null
+          : Drawer(
+              child: Column(
+                children: <Widget>[
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text('Home'),
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text('Articles'),
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text('Resources'),
+                  ),
+                ],
+              ),
+            ),
     );
   }
 }
