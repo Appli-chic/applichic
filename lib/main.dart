@@ -1,8 +1,14 @@
+import 'dart:html';
+
+import 'package:applichic/pages/articles/google_translate_part1.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/home_page.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  print(window.location.href);
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -11,7 +17,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Applichic',
       theme: ThemeData(fontFamily: 'Roboto'),
-      home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/articles/1': (context) => GoogleTranslatePart1Article(),
+      },
     );
   }
 }

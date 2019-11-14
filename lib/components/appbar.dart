@@ -8,6 +8,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
     if (size.width > 500) {
       return AppBar(
         backgroundColor: Colors.white,
+        automaticallyImplyLeading: false,
         title: AnimatedContainer(
           duration: Duration(seconds: 3),
           child: Image.asset(
@@ -17,7 +18,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
         actions: <Widget>[
           FlatButton(
-            onPressed: () {},
+            onPressed: () async {
+              await Navigator.of(context).pushNamed('/');
+            },
             child: Text('Home'),
           ),
           FlatButton(
@@ -34,6 +37,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       return AppBar(
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
+        automaticallyImplyLeading: false,
         title: AnimatedContainer(
           duration: Duration(seconds: 3),
           child: Image.asset(

@@ -3,6 +3,7 @@ import 'package:applichic/components/article_preview.dart';
 import 'package:applichic/components/footer.dart';
 import 'package:applichic/components/live_preview.dart';
 import 'package:applichic/components/recommendation_preview.dart';
+import 'package:applichic/pages/articles/google_translate_part1.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       return Container(
         margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: articles,
         ),
       );
@@ -32,12 +33,12 @@ class _HomePageState extends State<HomePage> {
             Container(
               margin: const EdgeInsets.only(bottom: 16),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: articles.sublist(0, 2),
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: articles.sublist(2, 4),
             ),
           ],
@@ -61,7 +62,7 @@ class _HomePageState extends State<HomePage> {
       return Container(
         margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: recommendations,
         ),
       );
@@ -73,12 +74,12 @@ class _HomePageState extends State<HomePage> {
             Container(
               margin: const EdgeInsets.only(bottom: 16),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: recommendations.sublist(0, 2),
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: recommendations.sublist(2, 4),
             ),
           ],
@@ -104,22 +105,18 @@ class _HomePageState extends State<HomePage> {
         imageName: 'flutter_logo.png',
         title: 'Flutter: Google Translate',
         subTitle: 'Make the design',
+        onClick: () async {
+          await Navigator.of(context).pushNamed('/articles/1');
+        },
       ),
       ArticlePreview(
         imageName: 'flutter_logo.png',
         title: 'Flutter: Google Translate',
         subTitle: 'Make it work',
+        onClick: () {},
       ),
-      ArticlePreview(
-        imageName: 'flutter_logo.png',
-        title: 'Flutter: Google Translate',
-        subTitle: 'Make the design',
-      ),
-      ArticlePreview(
-        imageName: 'flutter_logo.png',
-        title: 'Flutter: Google Translate',
-        subTitle: 'Make the design',
-      ),
+      Container(),
+      Container(),
     ];
 
     List<Widget> recommendations = [
@@ -166,7 +163,9 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: <Widget>[
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await Navigator.of(context).pushNamed('/');
+                    },
                     child: Text('Home'),
                   ),
                   FlatButton(
