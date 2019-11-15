@@ -105,15 +105,13 @@ class _HomePageState extends State<HomePage> {
         imageName: 'flutter_logo.png',
         title: 'Flutter: Google Translate',
         subTitle: 'Make the design',
-        onClick: () async {
-          await Navigator.of(context).pushNamed('/articles/1');
-        },
+        url: '/articles/1',
       ),
       ArticlePreview(
         imageName: 'flutter_logo.png',
         title: 'Flutter: Google Translate',
         subTitle: 'Make it work',
-        onClick: () {},
+        url: '/articles/1',
       ),
       Container(),
       Container(),

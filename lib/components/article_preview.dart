@@ -7,13 +7,13 @@ class ArticlePreview extends StatefulWidget {
   final String imageName;
   final String title;
   final String subTitle;
-  final Function onClick;
+  final String url;
 
   ArticlePreview({
     @required this.imageName,
     @required this.title,
     @required this.subTitle,
-    @required this.onClick,
+    @required this.url,
   });
 
   @override
@@ -39,8 +39,8 @@ class _ArticlePreviewState extends State<ArticlePreview> {
         width: double.maxFinite,
         child: HandCursor(
           child: InkWell(
-            onTap: () {
-              widget.onClick();
+            onTap: () async {
+              await Navigator.of(context).pushNamed(widget.url);
             },
             child: Stack(
               children: <Widget>[

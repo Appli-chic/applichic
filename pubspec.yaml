@@ -18,6 +18,7 @@ environment:
 
 dependencies:
   translator: ^0.1.0+7
+  flutter_highlight: ^0.5.0
 
   flutter:
     sdk: flutter
@@ -46,6 +47,7 @@ flutter:
   assets:
    - assets/
    - assets/google_translate/
+   - assets/articles/google_translate_part1/
 
   fonts:
     - family: Roboto
