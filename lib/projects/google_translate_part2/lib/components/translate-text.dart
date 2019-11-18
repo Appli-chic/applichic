@@ -49,12 +49,13 @@ class _TranslateTextState extends State<TranslateText> {
                   text: "Camera",
                 ),
                 ActionButton(
-                  imageIcon: AssetImage("assets/google_translate/pen.png"),
+                  imageIcon:
+                      AssetImage("assets/google_translate_part2/pen.png"),
                   text: "Handwriting",
                 ),
                 ActionButton(
-                  imageIcon:
-                      AssetImage("assets/google_translate/conversation.png"),
+                  imageIcon: AssetImage(
+                      "assets/google_translate_part2/conversation.png"),
                   text: "Conversation",
                 ),
                 ActionButton(

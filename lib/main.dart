@@ -17,10 +17,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Applichic',
       theme: ThemeData(fontFamily: 'Roboto'),
-      initialRoute: '/',
+      initialRoute: '/articles/3b7add08-a72b-4d13-a425-4640d00d9819',
       routes: {
         '/': (context) => HomePage(),
-        '/articles/1': (context) => GoogleTranslatePart1Article(),
+        '/articles/3b7add08-a72b-4d13-a425-4640d00d9819': (context) =>
+            GoogleTranslatePart1Article(),
       },
     );
   }

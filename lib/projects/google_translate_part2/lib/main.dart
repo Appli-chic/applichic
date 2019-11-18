@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'screens/home-page.dart';
 
-void main() => runApp(GoogleTranslateApp());
+void main() => runApp(GoogleTranslateAppPart2());
 
-class GoogleTranslateApp extends StatelessWidget {
+class GoogleTranslateAppPart2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
