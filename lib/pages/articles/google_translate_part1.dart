@@ -8,7 +8,7 @@ import 'package:applichic/components/article/subtitle.dart';
 import 'package:applichic/components/article/text.dart';
 import 'package:applichic/components/article/title.dart';
 import 'package:applichic/components/article/title1.dart';
-import 'package:applichic/projects/google_translate_part2/lib/main.dart';
+import 'package:applichic/projects/google_translate_part1/lib/main.dart';
 import 'package:flutter/material.dart';
 
 class GoogleTranslatePart1Article extends StatefulWidget {
@@ -25,7 +25,7 @@ class _GoogleTranslatePart1ArticleState
       backgroundColor: Colors.white,
       appBar: MainAppBar(),
       body: ACBody(
-        preview: GoogleTranslateAppPart2(),
+        preview: GoogleTranslateAppPart1(),
         children: <Widget>[
           ACTitle(
             text: "Flutter: Google Translate part 1",

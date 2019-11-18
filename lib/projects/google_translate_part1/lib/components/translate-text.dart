@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'action-button.dart';
+import 'ActionButton.dart';
 
 class TranslateText extends StatefulWidget {
-  TranslateText({Key key, this.onTextTouched}) : super(key: key);
-
-  final Function(bool) onTextTouched;
+  TranslateText({Key key}) : super(key: key);
 
   @override
   _TranslateTextState createState() => _TranslateTextState();
@@ -26,9 +24,7 @@ class _TranslateTextState extends State<TranslateText> {
           children: <Widget>[
             Expanded(
               child: InkWell(
-                onTap: () {
-                  this.widget.onTextTouched(true);
-                },
+                onTap: () {},
                 child: Container(
                   width: double.infinity,
                   padding: EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
@@ -50,12 +46,12 @@ class _TranslateTextState extends State<TranslateText> {
                 ),
                 ActionButton(
                   imageIcon: AssetImage(
-                      "assets/projects/google_translate_part2/pen.png"),
+                      "assets/projects/google_translate_part1/pen.png"),
                   text: "Handwriting",
                 ),
                 ActionButton(
                   imageIcon: AssetImage(
-                      "assets/projects/google_translate_part2/conversation.png"),
+                      "assets/projects/google_translate_part1/conversation.png"),
                   text: "Conversation",
                 ),
                 ActionButton(
