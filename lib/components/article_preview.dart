@@ -44,9 +44,15 @@ class _ArticlePreviewState extends State<ArticlePreview> {
             },
             child: Stack(
               children: <Widget>[
-                Image.asset(
-                  'assets/${widget.imageName}',
-                  fit: BoxFit.cover,
+                Container(
+                  margin: const EdgeInsets.all(32),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      'assets/${widget.imageName}',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
                 Container(
                   decoration: BoxDecoration(

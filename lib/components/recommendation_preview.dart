@@ -40,14 +40,17 @@ class _RecommendationPreviewState extends State<RecommendationPreview> {
             },
             child: Stack(
               children: <Widget>[
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.network(
-                    widget.imageUrl,
-                    fit: BoxFit.cover,
-                    width: double.maxFinite,
-                    height: double.maxFinite,
+                Opacity(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      widget.imageUrl,
+                      fit: BoxFit.cover,
+                      width: double.maxFinite,
+                      height: double.maxFinite,
+                    ),
                   ),
+                  opacity: 0.9,
                 ),
                 Container(
                   decoration: BoxDecoration(
@@ -56,6 +59,8 @@ class _RecommendationPreviewState extends State<RecommendationPreview> {
                       end: Alignment.bottomCenter,
                       colors: [
                         Color(0x00EEEEEE),
+                        Color(0x00EEEEEE),
+                        Color(0x4B000000),
                         Color(0x4B000000),
                       ],
                     ),
