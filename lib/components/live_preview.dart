@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 
 class LivePreview extends StatefulWidget {
   final Widget preview;
+  final bool isPreviewHorizontal;
+  final bool isNotWorking;
 
   LivePreview({
     this.preview,
+    this.isPreviewHorizontal,
+    this.isNotWorking,
   });
 
   @override
@@ -13,6 +17,33 @@ class LivePreview extends StatefulWidget {
 }
 
 class _LivePreviewState extends State<LivePreview> {
+  Widget _displaysPreviewContainer() {
+    Widget child = GoogleTranslateAppPart2();
+
+    if (widget.preview != null) {
+      child = widget.preview;
+    }
+
+    if (widget.isPreviewHorizontal == null ||
+        (widget.isPreviewHorizontal != null && !widget.isPreviewHorizontal)) {
+      return Container(
+        margin: const EdgeInsets.only(bottom: 32),
+        height: 700,
+        width: 394,
+        color: Color(0xFF69B4EA),
+        child: child,
+      );
+    } else {
+      return Container(
+        margin: const EdgeInsets.only(bottom: 32, top: 32),
+        height: 394,
+        width: 700,
+        color: Color(0xFF69B4EA),
+        child: child,
+      );
+    }
+  }
+
   Widget _displaysDefaultPreview() {
     return Container(
       margin: const EdgeInsets.only(top: 32),
@@ -41,13 +72,7 @@ class _LivePreviewState extends State<LivePreview> {
               ),
             ),
           ),
-          Container(
-            margin: const EdgeInsets.only(bottom: 32),
-            height: 700,
-            width: 394,
-            color: Color(0xFF69B4EA),
-            child: GoogleTranslateAppPart2(),
-          ),
+          _displaysPreviewContainer(),
         ],
       ),
     );
@@ -60,13 +85,18 @@ class _LivePreviewState extends State<LivePreview> {
       width: double.maxFinite,
       child: Column(
         children: <Widget>[
-          Container(
-            margin: const EdgeInsets.only(bottom: 32, top: 32),
-            height: 700,
-            width: 394,
-            color: Color(0xFF69B4EA),
-            child: widget.preview,
-          ),
+          widget.isNotWorking
+              ? Container(
+                  margin: const EdgeInsets.only(top: 16),
+                  child: Text(
+                    "Doesn't work with Flutter web",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                    ),
+                  ))
+              : Container(),
+          _displaysPreviewContainer(),
         ],
       ),
     );

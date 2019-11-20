@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 class ACBody extends StatelessWidget {
   final List<Widget> children;
   final Widget preview;
+  final bool isPreviewHorizontal;
+  final bool isNotWorking;
 
   ACBody({
     @required this.children,
+    this.isNotWorking,
     this.preview,
+    this.isPreviewHorizontal,
   });
 
   @override
@@ -29,7 +33,9 @@ class ACBody extends StatelessWidget {
                 ),
               ),
               LivePreview(
+                isPreviewHorizontal: isPreviewHorizontal,
                 preview: preview,
+                isNotWorking: true,
               ),
             ],
           ),

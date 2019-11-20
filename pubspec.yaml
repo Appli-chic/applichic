@@ -17,6 +17,8 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  nima: ^1.0.5
+  audioplayers: ^0.13.2
   translator: ^0.1.0+7
   flutter_highlight: ^0.5.0
   clippy: ^1.0.0
@@ -49,20 +51,24 @@ flutter:
    - assets/
    - assets/projects/google_translate_part1/
    - assets/projects/google_translate_part2/
+   - assets/projects/pokemon_fire_lava/
+
    - assets/articles/google_translate_part1/
+   - assets/articles/google_translate_part2/
+   - assets/articles/flutter_pokemon/
 
   fonts:
     - family: Roboto
       fonts:
-        - asset: fonts/Roboto-Regular.ttf
-        - asset: fonts/Roboto-Black.ttf
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Black.ttf
           weight: 900
-        - asset: fonts/Roboto-Bold.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf
           weight: 700
-        - asset: fonts/Roboto-Light.ttf
+        - asset: assets/fonts/Roboto-Light.ttf
           weight: 300
-        - asset: fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
           weight: 500
-        - asset: fonts/Roboto-Thin.ttf
+        - asset: assets/fonts/Roboto-Thin.ttf
           weight: 100
 

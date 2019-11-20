@@ -11,7 +11,9 @@ class ACSeparator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      child: Divider(),
+      child: Divider(
+        height: 1,
+      ),
     );
   }
 }
