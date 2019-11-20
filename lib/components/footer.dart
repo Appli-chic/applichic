@@ -11,6 +11,18 @@ class _FooterState extends State<Footer> {
   bool _isHoverGithub = false;
   bool _isHoverTwitter = false;
   bool _isHoverDiscord = false;
+  bool _isHoverLogosVisibleAtStart = true;
+
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds: 1)).then((d) {
+      setState(() {
+        _isHoverLogosVisibleAtStart = false;
+      });
+    });
+
+    super.initState();
+  }
 
   /// Displays information about me
   Widget _displaysPersonalInformation() {
@@ -349,6 +361,28 @@ class _FooterState extends State<Footer> {
               ),
             ),
           ),
+          Visibility(
+            visible: _isHoverLogosVisibleAtStart,
+            child: Row(
+              children: <Widget>[
+                Image.asset(
+                  'assets/github_logo_hover.png',
+                  height: 40,
+                  color: Color(0xFF7B7B7B),
+                ),
+                Image.asset(
+                  'assets/twitter_logo_hover.png',
+                  height: 40,
+                  color: Color(0xFF7B7B7B),
+                ),
+                Image.asset(
+                  'assets/discord_logo_hover.png',
+                  height: 40,
+                  color: Color(0xFF7B7B7B),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
