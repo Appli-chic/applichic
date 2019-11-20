@@ -5,11 +5,13 @@ class LivePreview extends StatefulWidget {
   final Widget preview;
   final bool isPreviewHorizontal;
   final bool isNotWorking;
+  final bool isPreviewDisabled;
 
   LivePreview({
     this.preview,
     this.isPreviewHorizontal,
     this.isNotWorking,
+    this.isPreviewDisabled,
   });
 
   @override
@@ -104,10 +106,14 @@ class _LivePreviewState extends State<LivePreview> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.preview == null) {
-      return _displaysDefaultPreview();
+    if (widget.isPreviewDisabled != null && widget.isPreviewDisabled) {
+      return Container();
     } else {
-      return _displaysArticlePreview();
+      if (widget.preview == null) {
+        return _displaysDefaultPreview();
+      } else {
+        return _displaysArticlePreview();
+      }
     }
   }
 }

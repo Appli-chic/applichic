@@ -1,9 +1,6 @@
 import 'package:applichic/components/appbar.dart';
-import 'package:applichic/components/article_preview.dart';
 import 'package:applichic/components/footer.dart';
 import 'package:applichic/components/live_preview.dart';
-import 'package:applichic/components/recommendation_preview.dart';
-import 'package:applichic/pages/articles/google_translate_part1.dart';
 import 'package:applichic/utils/data.dart';
 import 'package:flutter/material.dart';
 
@@ -108,7 +105,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _displaysArticles(articles),
+            _displaysArticles(articles.sublist(0, 4)),
             Container(
               margin: const EdgeInsets.only(left: 22, right: 22, top: 16),
               child: Text(
@@ -120,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            _displaysRecommendations(recommendations),
+            _displaysRecommendations(recommendations.sublist(0, 4)),
             LivePreview(),
             Footer(),
           ],
@@ -138,11 +135,15 @@ class _HomePageState extends State<HomePage> {
                     child: Text('Home'),
                   ),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await Navigator.of(context).pushNamed('/articles');
+                    },
                     child: Text('Articles'),
                   ),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await Navigator.of(context).pushNamed('/resources');
+                    },
                     child: Text('Resources'),
                   ),
                 ],

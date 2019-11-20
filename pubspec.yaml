@@ -17,8 +17,6 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
-  nima: ^1.0.5
-  audioplayers: ^0.13.2
   translator: ^0.1.0+7
   flutter_highlight: ^0.5.0
   clippy: ^1.0.0
@@ -51,7 +49,6 @@ flutter:
    - assets/
    - assets/projects/google_translate_part1/
    - assets/projects/google_translate_part2/
-   - assets/projects/pokemon_fire_lava/
 
    - assets/articles/google_translate_part1/
    - assets/articles/google_translate_part2/

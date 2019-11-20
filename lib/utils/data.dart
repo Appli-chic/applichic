@@ -21,7 +21,7 @@ List<Widget> articles = [
     subTitle: 'A battle system unfinished',
     url: '/articles/6fff9bfe-bd0d-457b-9d1d-1408d6203e40',
   ),
-  Container(),
+  Flexible(child: Container()),
 ];
 
 List<Widget> recommendations = [
@@ -31,7 +31,7 @@ List<Widget> recommendations = [
     imageUrl: 'https://miro.medium.com/max/3200/1*73IgUxPfyXUKZAaIXgutrw.png',
     title: 'Flutter StateManagement with Provider',
   ),
-  Container(),
-  Container(),
-  Container(),
+  Flexible(child: Container()),
+  Flexible(child: Container()),
+  Flexible(child: Container()),
 ];

@@ -37,11 +37,15 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Text('Home'),
           ),
           FlatButton(
-            onPressed: () {},
+            onPressed: () async {
+              await Navigator.of(context).pushNamed('/articles');
+            },
             child: Text('Articles'),
           ),
           FlatButton(
-            onPressed: () {},
+            onPressed: () async {
+              await Navigator.of(context).pushNamed('/resources');
+            },
             child: Text('Resources'),
           ),
         ],

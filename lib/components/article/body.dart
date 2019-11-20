@@ -6,12 +6,14 @@ class ACBody extends StatelessWidget {
   final Widget preview;
   final bool isPreviewHorizontal;
   final bool isNotWorking;
+  final bool isPreviewDisabled;
 
   ACBody({
     @required this.children,
     this.isNotWorking,
     this.preview,
     this.isPreviewHorizontal,
+    this.isPreviewDisabled,
   });
 
   @override
@@ -36,6 +38,7 @@ class ACBody extends StatelessWidget {
                 isPreviewHorizontal: isPreviewHorizontal,
                 preview: preview,
                 isNotWorking: true,
+                isPreviewDisabled: isPreviewDisabled,
               ),
             ],
           ),

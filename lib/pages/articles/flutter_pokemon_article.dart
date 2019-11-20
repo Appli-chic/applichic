@@ -8,7 +8,6 @@ import 'package:applichic/components/article/subtitle.dart';
 import 'package:applichic/components/article/text.dart';
 import 'package:applichic/components/article/title.dart';
 import 'package:applichic/components/article/title2.dart';
-import 'package:applichic/projects/pokemon_fire_lava/lib/main.dart';
 import 'package:flutter/material.dart';
 
 class FlutterPokemonArticle extends StatefulWidget {
@@ -23,9 +22,7 @@ class _FlutterPokemonArticleState extends State<FlutterPokemonArticle> {
       backgroundColor: Colors.white,
       appBar: MainAppBar(),
       body: ACBody(
-        isNotWorking: true,
-        preview: FlutterPokemon(),
-        isPreviewHorizontal: true,
+        isPreviewDisabled: true,
         children: <Widget>[
           ACTitle(
             text: "Pokémon and Flutter",
