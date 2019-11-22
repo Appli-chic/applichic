@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 class LivePreview extends StatefulWidget {
   final Widget preview;
   final bool isPreviewHorizontal;
-  final bool isNotWorking;
   final bool isPreviewDisabled;
 
   LivePreview({
     this.preview,
     this.isPreviewHorizontal,
-    this.isNotWorking,
     this.isPreviewDisabled,
   });
 
@@ -29,7 +27,7 @@ class _LivePreviewState extends State<LivePreview> {
     if (widget.isPreviewHorizontal == null ||
         (widget.isPreviewHorizontal != null && !widget.isPreviewHorizontal)) {
       return Container(
-        margin: const EdgeInsets.only(bottom: 32),
+        margin: const EdgeInsets.only(bottom: 32, left: 16, right: 16),
         height: 700,
         width: 394,
         color: Color(0xFF69B4EA),
@@ -37,7 +35,7 @@ class _LivePreviewState extends State<LivePreview> {
       );
     } else {
       return Container(
-        margin: const EdgeInsets.only(bottom: 32, top: 32),
+        margin: const EdgeInsets.only(bottom: 32, top: 32, left: 16, right: 16),
         height: 394,
         width: 700,
         color: Color(0xFF69B4EA),
@@ -83,21 +81,11 @@ class _LivePreviewState extends State<LivePreview> {
   Widget _displaysArticlePreview() {
     return Container(
       margin: const EdgeInsets.only(top: 32),
+      padding: const EdgeInsets.only(top: 32),
       color: Color(0xFF262260),
       width: double.maxFinite,
       child: Column(
         children: <Widget>[
-          widget.isNotWorking
-              ? Container(
-                  margin: const EdgeInsets.only(top: 16),
-                  child: Text(
-                    "Doesn't work with Flutter web",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                    ),
-                  ))
-              : Container(),
           _displaysPreviewContainer(),
         ],
       ),

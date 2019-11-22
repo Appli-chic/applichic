@@ -3,6 +3,15 @@ import 'package:flutter/material.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget _displaysTitle(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    String logoUrl = 'assets/applichic_logo.png';
+
+    if (size.width >= 500) {
+      logoUrl = 'assets/applichic_logo.png';
+    } else {
+      logoUrl = 'assets/applichic_logo_small.png';
+    }
+
     return HandCursor(
       child: InkWell(
         hoverColor: Colors.transparent,
@@ -13,7 +22,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           await Navigator.of(context).pushNamed('/');
         },
         child: Image.asset(
-          'assets/applichic_logo.png',
+          logoUrl,
           height: 31,
         ),
       ),
@@ -54,7 +63,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       return AppBar(
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black),
-        automaticallyImplyLeading: false,
+        leading: IconButton(
+            icon: Icon(Icons.dehaze),
+            onPressed: () => Scaffold.of(context).openDrawer()),
         title: _displaysTitle(context),
       );
     }

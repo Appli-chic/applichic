@@ -8,6 +8,7 @@ import 'package:applichic/components/article/text.dart';
 import 'package:applichic/components/article/title.dart';
 import 'package:applichic/components/article/title1.dart';
 import 'package:applichic/components/article/title2.dart';
+import 'package:applichic/components/drawer.dart';
 import 'package:applichic/projects/google_translate_part2/lib/main.dart';
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,7 @@ class _GoogleTranslatePart2ArticleState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: ACDrawer(),
       backgroundColor: Colors.white,
       appBar: MainAppBar(),
       body: ACBody(

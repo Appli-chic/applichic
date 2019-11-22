@@ -1,4 +1,5 @@
 import 'package:applichic/components/appbar.dart';
+import 'package:applichic/components/drawer.dart';
 import 'package:applichic/components/recommendation_preview.dart';
 import 'package:applichic/utils/data.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +50,7 @@ class _RecommendationPageState extends State<RecommendationPage> {
           }
         }).toList(),
       ),
+      drawer: ACDrawer(),
     );
   }
 }

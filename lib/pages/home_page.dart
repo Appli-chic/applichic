@@ -1,4 +1,5 @@
 import 'package:applichic/components/appbar.dart';
+import 'package:applichic/components/drawer.dart';
 import 'package:applichic/components/footer.dart';
 import 'package:applichic/components/live_preview.dart';
 import 'package:applichic/utils/data.dart';
@@ -123,32 +124,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      drawer: size.width > 500
-          ? null
-          : Drawer(
-              child: Column(
-                children: <Widget>[
-                  FlatButton(
-                    onPressed: () async {
-                      await Navigator.of(context).pushNamed('/');
-                    },
-                    child: Text('Home'),
-                  ),
-                  FlatButton(
-                    onPressed: () async {
-                      await Navigator.of(context).pushNamed('/articles');
-                    },
-                    child: Text('Articles'),
-                  ),
-                  FlatButton(
-                    onPressed: () async {
-                      await Navigator.of(context).pushNamed('/resources');
-                    },
-                    child: Text('Resources'),
-                  ),
-                ],
-              ),
-            ),
+      drawer: ACDrawer(),
     );
   }
 }

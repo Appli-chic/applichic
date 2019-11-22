@@ -8,6 +8,7 @@ import 'package:applichic/components/article/subtitle.dart';
 import 'package:applichic/components/article/text.dart';
 import 'package:applichic/components/article/title.dart';
 import 'package:applichic/components/article/title2.dart';
+import 'package:applichic/components/drawer.dart';
 import 'package:flutter/material.dart';
 
 class FlutterPokemonArticle extends StatefulWidget {
@@ -19,6 +20,7 @@ class _FlutterPokemonArticleState extends State<FlutterPokemonArticle> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: ACDrawer(),
       backgroundColor: Colors.white,
       appBar: MainAppBar(),
       body: ACBody(

@@ -1,5 +1,6 @@
 import 'package:applichic/components/appbar.dart';
 import 'package:applichic/components/article_preview.dart';
+import 'package:applichic/components/drawer.dart';
 import 'package:applichic/utils/data.dart';
 import 'package:flutter/material.dart';
 
@@ -50,6 +51,7 @@ class _ArticlePageState extends State<ArticlePage> {
           }
         }).toList(),
       ),
+      drawer: ACDrawer(),
     );
   }
 }
