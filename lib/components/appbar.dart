@@ -23,7 +23,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         },
         child: Image.asset(
           logoUrl,
-          height: 31,
+          height: size.width >= 500 ? 31 : 20,
         ),
       ),
     );
