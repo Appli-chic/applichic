@@ -106,20 +106,20 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            _displaysArticles(articles.sublist(0, 4)),
-            Container(
-              margin: const EdgeInsets.only(left: 22, right: 22, top: 16),
-              child: Text(
-                "Recommendations to read:",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xFF4A4A4A),
-                ),
-              ),
-            ),
-            _displaysRecommendations(recommendations.sublist(0, 4)),
-            LivePreview(),
+//            _displaysArticles(articles.sublist(0, 4)),
+//            Container(
+//              margin: const EdgeInsets.only(left: 22, right: 22, top: 16),
+//              child: Text(
+//                "Recommendations to read:",
+//                style: TextStyle(
+//                  fontSize: 24,
+//                  fontWeight: FontWeight.w500,
+//                  color: Color(0xFF4A4A4A),
+//                ),
+//              ),
+//            ),
+//            _displaysRecommendations(recommendations.sublist(0, 4)),
+//            LivePreview(),
             Footer(),
           ],
         ),
