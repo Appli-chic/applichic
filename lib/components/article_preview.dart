@@ -63,17 +63,20 @@ class _ArticlePreviewState extends State<ArticlePreview> {
                   ),
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0x00EEEEEE),
-                      Color(0x4B000000),
-                    ],
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Opacity(
+                  opacity: 0.8,
+                  child: Container(
+                    height: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.black26,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(8),
+                        bottomRight: Radius.circular(8),
+                      ),
+                    ),
                   ),
-                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
               Container(
