@@ -41,7 +41,7 @@ class _ArticlePreviewState extends State<ArticlePreview> {
       constraints: _getBoxConstraints(),
       margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
       decoration: BoxDecoration(
-        color: Color(0xFF69C0FF),
+          color: Color(0xFF69C0FF),
         borderRadius: BorderRadius.circular(8),
       ),
       height: 213,
@@ -53,14 +53,13 @@ class _ArticlePreviewState extends State<ArticlePreview> {
           },
           child: Stack(
             children: <Widget>[
-              Container(
-                margin: const EdgeInsets.all(32),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Image.asset(
-                    'assets/${widget.imageName}',
-                    fit: BoxFit.cover,
-                  ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Image.asset(
+                  'assets/${widget.imageName}',
+                  fit: BoxFit.fitHeight,
+                  width: double.maxFinite,
+                  height: double.maxFinite,
                 ),
               ),
               Align(
@@ -87,7 +86,7 @@ class _ArticlePreviewState extends State<ArticlePreview> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
+                      SelectableText(
                         widget.title,
                         style: TextStyle(
                           color: Colors.white,
@@ -95,7 +94,7 @@ class _ArticlePreviewState extends State<ArticlePreview> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Text(
+                      SelectableText(
                         widget.subTitle,
                         style: TextStyle(
                           color: Colors.white,

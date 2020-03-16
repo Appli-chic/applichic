@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 
 List<Widget> articles = [
   ArticlePreview(
-    imageName: 'flutter_logo.png',
+    imageName: 'pokemon.png',
     title: 'Flutter: Pokémon and Flutter',
     subTitle: 'A battle system unfinished',
     url: '/articles/6fff9bfe-bd0d-457b-9d1d-1408d6203e40',
   ),
   ArticlePreview(
-    imageName: 'flutter_logo.png',
+    imageName: 'google_translate_part_2.png',
     title: 'Flutter: Google Translate',
     subTitle: 'Make it work',
     url: '/articles/101baae8-6c0c-4d61-97c7-aa0ce3623f36',
   ),
   ArticlePreview(
-    imageName: 'flutter_logo.png',
+    imageName: 'google_translate_part_1.png',
     title: 'Flutter: Google Translate',
     subTitle: 'Make the design',
     url: '/articles/3b7add08-a72b-4d13-a425-4640d00d9819',

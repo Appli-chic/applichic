@@ -20,7 +20,7 @@ class ACLink extends StatelessWidget {
           onTap: () {
             html.window.open(text, 'Link');
           },
-          child: Text(
+          child: SelectableText(
             text,
             style: TextStyle(
               fontSize: 18,

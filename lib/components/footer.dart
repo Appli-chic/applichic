@@ -50,7 +50,7 @@ class _FooterState extends State<Footer> {
             children: <Widget>[
               Container(
                 margin: const EdgeInsets.only(bottom: 8, left: 4),
-                child: Text(
+                child: SelectableText(
                   'Guillaume Belouin',
                   style: TextStyle(
                     color: Color(0xFF7B7B7B),
@@ -211,14 +211,14 @@ class _FooterState extends State<Footer> {
     );
   }
 
-  /// Displays the important informations about my company
+  /// Displays the important information about my company
   Widget _displaysCompanyInformation() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
           margin: const EdgeInsets.only(bottom: 8),
-          child: Text(
+          child: SelectableText(
             'Company contact',
             style: TextStyle(
               color: Color(0xFF7B7B7B),
@@ -229,7 +229,7 @@ class _FooterState extends State<Footer> {
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 8),
-          child: Text(
+          child: SelectableText(
             '36 rue bougere, 49000 \nAngers, France',
             style: TextStyle(
               color: Color(0xFF7B7B7B),
@@ -239,7 +239,7 @@ class _FooterState extends State<Footer> {
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 8),
-          child: Text(
+          child: SelectableText(
             'SIREN: 839 498 300',
             style: TextStyle(
               color: Color(0xFF7B7B7B),
@@ -258,7 +258,7 @@ class _FooterState extends State<Footer> {
       children: <Widget>[
         Container(
           margin: const EdgeInsets.only(bottom: 8),
-          child: Text(
+          child: SelectableText(
             'Contact me',
             style: TextStyle(
               color: Color(0xFF7B7B7B),
@@ -269,8 +269,8 @@ class _FooterState extends State<Footer> {
         ),
         Container(
           margin: const EdgeInsets.only(bottom: 8),
-          child: Text(
-            'gbelouin@applichic.com',
+          child: SelectableText(
+            'applichic@gmail.com',
             style: TextStyle(
               color: Color(0xFF7B7B7B),
               fontSize: 16,
@@ -281,7 +281,7 @@ class _FooterState extends State<Footer> {
     );
   }
 
-  Widget _displaysFooterFromWindozSize() {
+  Widget _displaysFooterFromWindowSize() {
     Size size = MediaQuery.of(context).size;
 
     if (size.width >= 1100) {
@@ -351,11 +351,11 @@ class _FooterState extends State<Footer> {
       padding: const EdgeInsets.only(top: 16, bottom: 8),
       child: Column(
         children: <Widget>[
-          _displaysFooterFromWindozSize(),
+          _displaysFooterFromWindowSize(),
           Container(
             margin: const EdgeInsets.only(top: 16, bottom: 8),
-            child: Text(
-              "Copyright © 2018-2019 Applichic",
+            child: SelectableText(
+              "Copyright © 2018-2020 Applichic",
               style: TextStyle(
                 color: Color(0xFF7B7B7B),
               ),

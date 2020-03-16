@@ -13,7 +13,7 @@ class ACTitle2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      child: Text(
+      child: SelectableText(
         text,
         style: TextStyle(
           fontSize: 25,

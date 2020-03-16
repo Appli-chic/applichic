@@ -36,7 +36,7 @@ class _RecommendationPreviewState extends State<RecommendationPreview> {
   Widget build(BuildContext context) {
     var child = Container(
       constraints: _getBoxConstraints(),
-      margin: const EdgeInsets.only(left: 16, right: 16),
+      margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
       ),

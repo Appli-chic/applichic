@@ -53,7 +53,7 @@ class _LivePreviewState extends State<LivePreview> {
         children: <Widget>[
           Container(
             margin: const EdgeInsets.only(top: 32),
-            child: Text(
+            child: SelectableText(
               "LIVE PREVIEW",
               style: TextStyle(
                 color: Colors.white,
@@ -64,7 +64,7 @@ class _LivePreviewState extends State<LivePreview> {
           ),
           Container(
             margin: const EdgeInsets.only(top: 16, bottom: 24),
-            child: Text(
+            child: SelectableText(
               "A preview of Flutter applications\n in the website for each articles.",
               style: TextStyle(
                 color: Colors.white,

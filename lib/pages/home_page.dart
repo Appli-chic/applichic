@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
 
     if (size.width >= 1100) {
       return Container(
-        margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: articles,
@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
       );
     } else if (size.width > 500) {
       return Container(
-        margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 16),
         child: Column(
           children: <Widget>[
             Container(
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
       );
     } else {
       return Container(
-        margin: const EdgeInsets.only(left: 8, right: 8, top: 32),
+        margin: const EdgeInsets.only(left: 8, right: 8, top: 16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: articles,
@@ -97,8 +97,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: MainAppBar(),
@@ -106,10 +104,27 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(top: 16, left: 22),
+                  child: SelectableText("Made in Flutter with"),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 4),
+                  child: Icon(
+                    Icons.favorite,
+                    color: Colors.pinkAccent,
+                    size: 18,
+                  ),
+                ),
+              ],
+            ),
             _displaysArticles(articles.sublist(0, 4)),
             Container(
               margin: const EdgeInsets.only(left: 22, right: 22, top: 16),
-              child: Text(
+              child: SelectableText(
                 "Recommendations to read:",
                 style: TextStyle(
                   fontSize: 24,
