@@ -45,6 +45,7 @@ class _ArticlePageState extends State<ArticlePage> {
               subTitle: articlePreview.subTitle,
               url: articlePreview.url,
               isInGrid: true,
+              color: articlePreview.color,
             );
           } else {
             return Container();
