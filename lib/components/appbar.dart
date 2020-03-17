@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget _displaysTitle(BuildContext context) {
+    String actualRoute = ModalRoute.of(context).settings.name;
     Size size = MediaQuery.of(context).size;
     String logoUrl = 'assets/applichic_logo.png';
 
@@ -19,7 +20,9 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         highlightColor: Colors.transparent,
         focusColor: Colors.transparent,
         onTap: () async {
-          await Navigator.of(context).pushNamed('/');
+          if (actualRoute != '/') {
+            await Navigator.of(context).pushNamed('/');
+          }
         },
         child: Image.asset(
           logoUrl,
@@ -32,6 +35,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    String actualRoute = ModalRoute.of(context).settings.name;
 
     if (size.width >= 500) {
       return AppBar(
@@ -41,19 +45,25 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         actions: <Widget>[
           FlatButton(
             onPressed: () async {
-              await Navigator.of(context).pushNamed('/');
+              if (actualRoute != '/') {
+                await Navigator.of(context).pushNamed('/');
+              }
             },
             child: Text('Home'),
           ),
           FlatButton(
             onPressed: () async {
-              await Navigator.of(context).pushNamed('/articles');
+              if (actualRoute != '/articles') {
+                await Navigator.of(context).pushNamed('/articles');
+              }
             },
             child: Text('Articles'),
           ),
           FlatButton(
             onPressed: () async {
-              await Navigator.of(context).pushNamed('/resources');
+              if (actualRoute != '/resources') {
+                await Navigator.of(context).pushNamed('/resources');
+              }
             },
             child: Text('Resources'),
           ),

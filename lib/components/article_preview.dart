@@ -9,12 +9,14 @@ class ArticlePreview extends StatefulWidget {
   final String subTitle;
   final String url;
   final bool isInGrid;
+  final Color color;
 
   ArticlePreview({
     @required this.imageName,
     @required this.title,
     @required this.subTitle,
     @required this.url,
+    @required this.color,
     this.isInGrid,
   });
 
@@ -41,7 +43,7 @@ class _ArticlePreviewState extends State<ArticlePreview> {
       constraints: _getBoxConstraints(),
       margin: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
       decoration: BoxDecoration(
-          color: Color(0xFF69C0FF),
+        color: widget.color,
         borderRadius: BorderRadius.circular(8),
       ),
       height: 213,
