@@ -40,6 +40,10 @@ class _GoogleTranslatePart3ArticleState
             margin: const EdgeInsets.only(top: 32, bottom: 32),
             url: "assets/google_translate_part_3.png",
           ),
+//          ACVideo(
+//            margin: const EdgeInsets.only(top: 32, bottom: 32),
+//            url: 'assets/articles/google_translate_part3/video.mp4',
+//          ),
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
