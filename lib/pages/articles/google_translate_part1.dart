@@ -36,6 +36,15 @@ class _GoogleTranslatePart1ArticleState
             text: "Make the design",
             margin: const EdgeInsets.only(top: 8),
           ),
+          ACText(
+            margin: const EdgeInsets.only(top: 8),
+            text:
+            "Read the article also on medium:",
+          ),
+          ACLink(
+            margin: const EdgeInsets.only(top: 8),
+            text: "https://blog.usejournal.com/flutter-google-translate-part-1-63b50c93d873",
+          ),
           ACImage(
             margin: const EdgeInsets.only(top: 32, bottom: 32),
             url: "assets/articles/google_translate_part1/first_image.png",

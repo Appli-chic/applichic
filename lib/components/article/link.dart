@@ -2,7 +2,7 @@ import 'package:applichic/utils/hand_cursor.dart';
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
 
-class ACLink extends StatelessWidget {
+class ACLink extends StatefulWidget {
   final String text;
   final EdgeInsetsGeometry margin;
 
@@ -12,16 +12,23 @@ class ACLink extends StatelessWidget {
   });
 
   @override
+  _ACLinkState createState() => _ACLinkState();
+}
+
+class _ACLinkState extends State<ACLink> {
+  @override
   Widget build(BuildContext context) {
     return Container(
-      margin: margin,
+      margin: widget.margin,
       child: HandCursor(
-        child: GestureDetector(
+        child: InkWell(
+          splashColor: Colors.transparent,
+          hoverColor: Colors.transparent,
           onTap: () {
-            html.window.open(text, 'Link');
+            html.window.open(widget.text, 'Link');
           },
-          child: SelectableText(
-            text,
+          child: Text(
+            widget.text,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w400,

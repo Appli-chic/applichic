@@ -10,7 +10,6 @@ class Footer extends StatefulWidget {
 class _FooterState extends State<Footer> {
   bool _isHoverGithub = false;
   bool _isHoverTwitter = false;
-  bool _isHoverDiscord = false;
   bool _isHoverLogosVisibleAtStart = true;
 
   @override
@@ -174,27 +173,6 @@ class _FooterState extends State<Footer> {
                       height: 40,
                       color: Color(0xFF7B7B7B),
                     ),
-                  ),
-                ),
-              ),
-              HandCursor(
-                child: InkWell(
-                  splashColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  onTap: () {
-                    html.window.open('https://discord.gg/QtdQ3A7', 'Discord');
-                  },
-                  onHover: (bool hasEntered) {
-                    setState(() {
-                      _isHoverDiscord = hasEntered;
-                    });
-                  },
-                  child: Image.asset(
-                    _isHoverDiscord
-                        ? 'assets/discord_logo_hover.png'
-                        : 'assets/discord_logo.png',
-                    height: 35,
-                    color: Color(0xFF7B7B7B),
                   ),
                 ),
               ),
@@ -372,11 +350,6 @@ class _FooterState extends State<Footer> {
                 ),
                 Image.asset(
                   'assets/twitter_logo_hover.png',
-                  height: 40,
-                  color: Color(0xFF7B7B7B),
-                ),
-                Image.asset(
-                  'assets/discord_logo_hover.png',
                   height: 40,
                   color: Color(0xFF7B7B7B),
                 ),

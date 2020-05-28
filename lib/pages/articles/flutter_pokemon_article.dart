@@ -33,6 +33,15 @@ class _FlutterPokemonArticleState extends State<FlutterPokemonArticle> {
             text: "A battle system unfinished",
             margin: const EdgeInsets.only(top: 8),
           ),
+          ACText(
+            margin: const EdgeInsets.only(top: 8),
+            text:
+            "Read the article also on medium:",
+          ),
+          ACLink(
+            margin: const EdgeInsets.only(top: 8),
+            text: "https://medium.com/@applichic/pok%C3%A9mon-and-flutter-e9026e174c74",
+          ),
           ACSpacer(),
           ACImage(
             url: "assets/articles/flutter_pokemon/first_image.png",

@@ -1,6 +1,7 @@
 import 'package:applichic/pages/article_page.dart';
 import 'package:applichic/pages/articles/flutter_pokemon_article.dart';
 import 'package:applichic/pages/articles/google_translate_part1.dart';
+import 'package:applichic/pages/articles/google_translate_part3.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/articles/google_translate_part2.dart';
@@ -34,6 +35,8 @@ class MyApp extends StatelessWidget {
             GoogleTranslatePart2Article(),
         '/articles/6fff9bfe-bd0d-457b-9d1d-1408d6203e40': (context) =>
             FlutterPokemonArticle(),
+        '/articles/7c818171-e96a-40c1-978e-7de52456fd0d': (context) =>
+            GoogleTranslatePart3Article(),
       },
     );
   }

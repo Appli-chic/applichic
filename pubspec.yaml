@@ -52,6 +52,7 @@ flutter:
 
    - assets/articles/google_translate_part1/
    - assets/articles/google_translate_part2/
+   - assets/articles/google_translate_part3/
    - assets/articles/flutter_pokemon/
 
   fonts:

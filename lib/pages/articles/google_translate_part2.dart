@@ -36,6 +36,15 @@ class _GoogleTranslatePart2ArticleState
             text: "Translate our first text",
             margin: const EdgeInsets.only(top: 8),
           ),
+          ACText(
+            margin: const EdgeInsets.only(top: 8),
+            text:
+            "Read the article also on medium:",
+          ),
+          ACLink(
+            margin: const EdgeInsets.only(top: 8),
+            text: "https://blog.usejournal.com/flutter-google-translate-part-2-3374ecdb8aa0",
+          ),
           ACTitle1(
             margin: const EdgeInsets.only(top: 32),
             text: "Sticky header list overview",
