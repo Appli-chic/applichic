@@ -53,6 +53,11 @@ class _GoogleTranslatePart3ArticleState
             margin: const EdgeInsets.only(top: 8),
             text: "https://blog.usejournal.com/flutter-google-translate-part-2-3374ecdb8aa0",
           ),
+          ACText(
+            margin: const EdgeInsets.only(top: 8),
+            text:
+            "In this third part we will develop the voice recognition to translate your speech and translate a conversation between two persons. Before starting, I refactored part of the code, adding Providers to simplify the way we are passing the data between widgets and screens.",
+          ),
           ACTitle1(
             margin: const EdgeInsets.only(top: 32),
             text: "Refactoring",
@@ -69,7 +74,7 @@ class _GoogleTranslatePart3ArticleState
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "Second, we add a file called translate_provider.dart which will be used to know which languages are currently selected; the text translated and if we are translating it. We are considering French and English are the selected languages when we are opening the app.",
+            "Second, we add a file called translate_provider.dart which will keep information like the selected languages; the text translated and if we are translating it. We are considering French and English are the selected languages when we are opening the app.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -110,7 +115,7 @@ String get textToTranslate => _textToTranslate;
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "Now, we must tell to our application which providers we are using. To do so, we are going to declare the provider in a Widget called MultiProvider before the Widget MaterialApp in our main.dart.",
+            "Now, we must tell to our application which providers we are using. To do so, we will declare the provider in a Widget called MultiProvider before the Widget MaterialApp in our main.dart.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -139,7 +144,7 @@ String get textToTranslate => _textToTranslate;
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "This being done, we can now call the provider in any Widget descending of our MaterialApp with the data stored in it. Nevertheless, be careful, most of the time, we must call the Provider.of in the Build function, it won't work in the initState one.",
+            "This being done, we can now call the provider in any Widget descending of our MaterialApp with the data stored in it. Be careful, most of the time, we must call the Provider.of in the Build function, it won’t work in the initState one.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -150,7 +155,7 @@ Widget build(BuildContext context) {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "If you want to learn more about the Providers, surely explained a better way than I can do, then I warmly recommend you to read this article:",
+            "If you want to learn more about the Providers, explained a better way than I can do, then I recommend you to read this article:",
           ),
           ACLink(
             margin: const EdgeInsets.only(top: 8),
@@ -163,7 +168,7 @@ Widget build(BuildContext context) {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "The first screen we are going to create is the one that shows the text from our speech. When the voice activity isn't recognizing any words for 3 seconds straight then we leave this page to show the translation of the whole text.",
+            "The first screen we will create is the one that shows the text from our speech. When the voice activity isn’t recognizing any words for 3 seconds straight, then we leave this page to show the entire text translated.",
           ),
           ACImage(
             margin: const EdgeInsets.only(top: 32, bottom: 32),
@@ -172,7 +177,7 @@ Widget build(BuildContext context) {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "We are going to use the dart library called speech_to_text to record the voice as text. Then we are going to translate this text using the code on the home page we already developed in the previous article.",
+            "We will use the dart library called speech_to_text to record the voice as a text. Then we will translate this text using the code on the home page we already developed in the previous article.",
           ),
           ACLink(
             margin: const EdgeInsets.only(top: 8),
@@ -181,7 +186,7 @@ Widget build(BuildContext context) {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "To start, we are declaring the _speech variable that we will use to listen the speech in a selected language. Then a timer which is going stop the voice recording after 3 seconds. Finally, the text variable containing the speech. Don't forget to cancel the timer and the speech detection in the deactivate function to make sure it doesn't continue to run in background.",
+            "To start, we are declaring the _speech variable that we will use to listen to the speech in a selected language. Then a timer which will stop the voice recording after 3 seconds. The text variable contains the speech. Don’t forget to cancel the timer and the speech detection in the deactivate function to make sure it doesn’t continue to run in background.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -210,7 +215,7 @@ super.deactivate();
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "We declare now our function to start the speech recognition. _speech.initialize is going to ask the user if he authorizes the application to have access to his microphone. If it is authorized then we start the timer and the voice recognition. This function takes in parameters the language to listen and a function which contains the text of the speech.",
+            "We declare now our function to start the speech recognition. _speech.initialize will ask the user if he allows the application to have access to his microphone. Then we start the timer and the voice recognition. This function takes in parameters the language to listen and a function which contains the text of the speech.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -240,12 +245,12 @@ void _statusListener(String status) {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "Our function _resultListener is going to be called each time the user is saying something new, knowing that we restart the timer of 3 seconds to not stop the speech while the person was talking. When result.finalResult is true, the text contained in the result variable is the final version of the text.",
+            "Our function _resultListener will be called each time the user is saying something new, knowing that we restart the timer of 3 seconds to not stop the speech while the person was talking. When result.finalResult is true, the text in the result variable is the final version of the text.",
           ),
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "The text corresponding to the speech is sent back at the end of the 3 seconds ticks and cancels the timer and speech. Each time startTimer is called we cancel the previous timer to create a new one.",
+            "At the end of the 3 seconds ticks, we send back the corresponding text; we cancel the speech and the timer. When we call the startTimer we cancel the previous timer to recreate it.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -281,7 +286,7 @@ _timer = Timer.periodic(Duration(seconds: 1), (Timer t) {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "And here is the UI part, I will explain the component RecordButton I created at the end of this article in a bonus part. The screen displays a text \"Talk now\" until the user starts to talk, when the user starts to talk we display what he says in real time. The close button is displayed at the bottom left of the screen like the original application. The language we must speak in is displayed also at the bottom of the screen, and we have this information thanks to our provider.",
+            "And here is the UI part, I will explain the component RecordButton I created at the end of this article in a bonus part. The screen displays a text “Talk now” until the user talks, when the user talks we display what he says in real-time. It displays the close button at the bottom left of the screen like the original application. It displays also the language the user must speak in at the bottom of the screen, and we have this information thanks to our provider.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -370,7 +375,7 @@ return Scaffold(
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "We are going now to create the conversation screen. In this screen two persons are talking to each other with a real time translation.",
+            "We are going now to create the conversation screen. In this screen two persons are talking to each other with a real-time translation.",
           ),
           ACImage(
             margin: const EdgeInsets.only(top: 32, bottom: 32),
@@ -379,12 +384,12 @@ return Scaffold(
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "This page is very similar to the previous page in many points. The main difference being the translation directly in this page and a system of conversation.",
+            "This page is very similar to the previous page in many points. The main difference being the translation in this page and a system of conversation.",
           ),
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "We are keeping the information of the text from the speech and the text translated to be able to display both at the same time. We also translate the text \"Talk now…\" in the language concerned and we need to keep this information in the variable _talkNowTextLanguage1 and _talkNowTextLanguage2. Finally, we create a GoogleTranslate variable for the translation and index that will determine which person is talking.",
+            "We are keeping the text from the speech and the text translated to display both at the same time. We also translate the text “Talk now…” in the language concerned and we need to keep this information in the variable _talkNowTextLanguage1 and _talkNowTextLanguage2. Then we create a GoogleTranslate variable for the translation and index that will determine which person is talking.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -418,7 +423,7 @@ super.deactivate();
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "The function retrieving voice recording information is slightly changing. We translate the text at each call from this function with the right language thanks to the index we defined earlier.",
+            "The function retrieving voice recording information is changing. We translate the text at each call from this function with the right language thanks to the index we defined earlier.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -456,7 +461,7 @@ setState(() {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "The way to define our timer also changed. Each time we end a speech translation, we start a new speech translation for the other language by changing the index. The last part of the function is a workaround to assure the speech recognition works well because I got some issues in my tests without it.",
+            "The way to define our timer also changed. Each time we end a speech translation, we start a new one for the other language by changing the index. The last part of the function is a workaround to assure the speech recognition works well because I got some issues in my tests without it.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -521,7 +526,7 @@ setState(() {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "Now that our text is translated in both languages we add two functions to display the right text for all the situations.",
+            "Now that we translated the text in both languages, we add two functions to display the right text for all the situations.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -569,7 +574,7 @@ String _displaysTextLanguage2() {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "And finally, the UI part of this screen. It divides the screen in 3 parts, the text in the first language, the text in the second language and then the buttons at the bottom. As we wish the 2 languages part to take the biggest part of the screen, they are both the child of an Expanded widget. The RecordButton widget is thought to accept buttons on the left and right which we are using on this screen. We stop the speech recognition and start a new one and change the language when the user click on the left or right button.",
+            "And the UI part of this screen. It divides the screen in 3 parts, the text in the first language, the text in the second language and then the buttons at the bottom. As we wish the 2 languages part to take the biggest part of the screen, they are both the child of an Expanded widget. We conceived the RecordButton widget to accept buttons on the left and right which we are using on this screen. We stop the speech recognition and restart it and change the language when the user click on the left or right button.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -687,7 +692,7 @@ Widget build(BuildContext context) {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "The record button contains animations to keep the user aware of the speech recognition. The animations are composed of 2 containers in the shape of circle with ScaleTransition delayed of 1 second between the both. The TickerProviderStateMixin must be added to the State to use the animations. In the initState, we declare the controller and the animation, each animation will last 2 seconds as we declare it in each AnimationController. The 1 second delay between the two animation is defined in the initState as it is declared one second later. And of course, don't forget to dispose the controllers.",
+            "The record button contains animations to keep the user aware of the speech recognition. The animations are composed of 2 containers in the shape of a circle with ScaleTransition delayed of 1 second between the both. We must add TickerProviderStateMixin to the State to use animations. In the initState, we declare the controller and the animation, each animation will last 2 seconds as we declare it in each AnimationController. We define the 1 second delay between the two animation in the initState as we declare it one second later. And don’t forget to dispose the controllers.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -746,7 +751,7 @@ class _RecordButtonState extends State<RecordButton>
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "Now the animation being declared we create a function which creates the button wave shape that grows over time for 2 seconds. Then, a function for each wave to display the wave only when it is finally declared.",
+            "Now the animation being declared we create a function which creates the button wave shape that grows over time for 2 seconds. Then, a function for each wave to display the declared waves.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -796,7 +801,7 @@ Widget _displaysButtonWave1() {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "Finally we add the recording button in itself in Stack with the same initial size as the waves to center same on the same point. And also a Row to contain a left and right widget next to the recording button. In this configuration, the button waves are going to grow and display under the left and right widget as we wish here.",
+            "We add the recording button in the Stack with the same initial size as the waves to center same on the same point. And also a Row to contain a left and right widget next to the recording button. In this configuration, the button waves will grow and display under the left and right widget as we wish here.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -862,7 +867,7 @@ Widget build(BuildContext context) {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "In order to get closer to the official design of Google Translate, I kept the same button shapes. I used the ClipPath Widget to change the shape of my buttons. I created a CustomClipper for each button defining the path to follow.",
+            "To get closer to the official design of Google Translate, I kept the same button shapes. I used the ClipPath Widget to change the shape of my buttons. I created a CustomClipper for each button defining the path to follow.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -914,7 +919,7 @@ class DiscussionRightClip extends CustomClipper<Path> {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "When our CustomClipper are created we add the ClipPath widget as a parent of our container and define our CustomClipper on the argument called clipper.",
+            "We add the ClipPath widget as a parent of our container and define our CustomClipper on the argument called clipper.",
           ),
           ACCode(
             margin: EdgeInsets.only(top: 32),
@@ -963,7 +968,7 @@ CustomClipper<Path> _displaysDirection() {
           ACText(
             margin: const EdgeInsets.only(top: 8),
             text:
-            "I had no difficulty so far to recreate the Google Translate application which shows the mobile part of Flutter is already very practical. My next objective is to use OCR technologies with Flutter to translate text from a photo and learn more about eventual Flutter limitations.",
+            "I had no difficulty so far to recreate the Google Translate application which shows the mobile part of Flutter is already very practical. My next challenge is to use OCR technologies with Flutter to translate text from a photo and learn more about Flutter.",
           ),
           ACText(
             margin: const EdgeInsets.only(top: 8),
